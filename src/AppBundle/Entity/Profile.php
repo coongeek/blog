@@ -18,12 +18,6 @@ class Profile
     private $id;
     
     /**
-     * @ORM\OneToOne(targetEntity="User")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-     */
-    private $user;
-    
-    /**
      * @ORM\Column(type="integer", name="sex")
      */
     private $sex;

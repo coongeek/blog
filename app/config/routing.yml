@@ -1,3 +1,7 @@
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+    
+profile:
+    pattern: /profile
+    defaults: { _controller: AppBundle:Profile:Profile }

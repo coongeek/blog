@@ -38,6 +38,12 @@ class User implements UserInterface, \Serializable
      */
     private $roles;
     
+    /**
+     * @ORM\OneToOne(targetEntity="Profile")
+     * @ORM\JoinColumn(name="profile_id", referencedColumnName="id")
+     */
+    private $profile;
+    
     public function __construct() {
         $this->salt = uniqid(mt_rand());
     }
@@ -61,6 +67,10 @@ class User implements UserInterface, \Serializable
     function getRoles() {
         return array('ROLE_USER');
     }
+    
+    function getProfile() {
+        return $this->profile;
+    }
 
     function setUsername($username) {
         $this->username = $username;
@@ -81,6 +91,11 @@ class User implements UserInterface, \Serializable
 
     function setRoles(array $roles) {
         $this->roles = serialize($roles);
+        return $this;
+    }
+    
+    function setProfile($profile) {
+        $this->profile = $profile;
         return $this;
     }
     
