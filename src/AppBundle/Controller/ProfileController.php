@@ -10,8 +10,9 @@ class ProfileController extends Controller
     public function profileAction(Request $request)
     {
         $ownerProfile = $this->getUser()->getProfile();
+
         
-        exit(\Doctrine\Common\Util\Debug::dump($ownerProfile->getId()));
+        return $this->render('profile/page/profile.html.twig', array());
     }
 }
 
